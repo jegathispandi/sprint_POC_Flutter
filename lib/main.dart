@@ -6,6 +6,7 @@ import 'package:sprint_POC/page2.dart';
 import 'package:sprint_POC/page3.dart';
 import 'package:sprint_POC/page4.dart';
 import 'package:sprint_POC/page5.dart';
+import 'package:sprint_POC/page6.dart';
 import 'keyboards/test_keyboard.dart';
 
 import 'init_db.dart';
@@ -58,6 +59,12 @@ class MyApp extends StatelessWidget {
             break;
           case Page5.routeName:
             page = Page5(
+              data: settings.arguments,
+            );
+            return MaterialPageRoute(builder: (context) => page);
+            break;
+          case Page6.routeName:
+            page = Page6(
               data: settings.arguments,
             );
             return MaterialPageRoute(builder: (context) => page);
@@ -129,6 +136,13 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Custom keyboard"),
               onPressed: () {
                 Navigator.pushNamed(context, Page5.routeName,
+                    arguments: "This is some data");
+              },
+            ),
+            FlatButton(
+              child: Text("Signature Capturing"),
+              onPressed: () {
+                Navigator.pushNamed(context, Page6.routeName,
                     arguments: "This is some data");
               },
             ),
